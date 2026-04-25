@@ -49,8 +49,10 @@ final class OpenAiImageService {
 			'quality' => $this->config->get_quality(),
 		);
 
-		if ( 'gpt-image-1' === $model ) {
-			$body['output_format'] = 'b64_json';
+		$is_gpt_image = 'gpt-image-1' === $model;
+
+		if ( $is_gpt_image ) {
+			$body['output_format'] = 'png';
 		} else {
 			$body['response_format'] = 'b64_json';
 		}
@@ -98,12 +100,14 @@ final class OpenAiImageService {
 		$response_body = wp_remote_retrieve_body( $response );
 		$data          = json_decode( $response_body, true );
 
-		if ( ! is_array( $data ) || ! isset( $data['data'][0]['b64_json'] ) ) {
+		$b64_key = $is_gpt_image ? 'b64' : 'b64_json';
+
+		if ( ! is_array( $data ) || ! isset( $data['data'][0][ $b64_key ] ) ) {
 			throw new \RuntimeException(
 				esc_html__( 'Unexpected response format from OpenAI API.', 'wp-ai-featured-image' )
 			);
 		}
 
-		return $data['data'][0]['b64_json'];
+		return $data['data'][0][ $b64_key ];
 	}
 }
