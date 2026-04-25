@@ -100,14 +100,12 @@ final class OpenAiImageService {
 		$response_body = wp_remote_retrieve_body( $response );
 		$data          = json_decode( $response_body, true );
 
-		$b64_key = $is_gpt_image ? 'b64' : 'b64_json';
-
-		if ( ! is_array( $data ) || ! isset( $data['data'][0][ $b64_key ] ) ) {
+		if ( ! is_array( $data ) || ! isset( $data['data'][0]['b64_json'] ) ) {
 			throw new \RuntimeException(
 				esc_html__( 'Unexpected response format from OpenAI API.', 'wp-ai-featured-image' )
 			);
 		}
 
-		return $data['data'][0][ $b64_key ];
+		return $data['data'][0]['b64_json'];
 	}
 }
