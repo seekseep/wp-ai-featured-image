@@ -1,0 +1,201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP AI Featured Image Generator 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-25 00:00+0000\n"
+"PO-Revision-Date: 2026-04-25 00:00+0000\n"
+"Last-Translator: seekseep\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/AdminSettings.php
+msgid "AI Featured Image"
+msgstr "AI アイキャッチ画像"
+
+#: src/AdminSettings.php
+msgid "OpenAI API Settings"
+msgstr "OpenAI API 設定"
+
+#: src/AdminSettings.php
+msgid "API Key"
+msgstr "API キー"
+
+#: src/AdminSettings.php
+msgid "Model"
+msgstr "モデル"
+
+#: src/AdminSettings.php
+msgid "Image Size"
+msgstr "画像サイズ"
+
+#: src/AdminSettings.php
+msgid "Quality"
+msgstr "画質"
+
+#: src/AdminSettings.php
+msgid "OpenAI API key is not configured. Please set it below or define WP_AI_FEATURED_IMAGE_API_KEY in wp-config.php."
+msgstr "OpenAI API キーが設定されていません。以下で設定するか、wp-config.php で WP_AI_FEATURED_IMAGE_API_KEY を定義してください。"
+
+#: src/AdminSettings.php
+msgid "API key is configured via a PHP constant or environment variable. The field below is ignored."
+msgstr "API キーは PHP 定数または環境変数で設定されています。以下のフィールドは無視されます。"
+
+#: src/AdminSettings.php
+msgid "Configure the OpenAI API settings for image generation."
+msgstr "画像生成用の OpenAI API 設定を行います。"
+
+#: src/AdminSettings.php
+msgid "You can obtain an API key from %s."
+msgstr "API キーは %s から取得できます。"
+
+#: src/AdminSettings.php
+msgid "Recommended: Define the API key in wp-config.php for security:"
+msgstr "推奨: セキュリティのため、wp-config.php で API キーを定義してください:"
+
+#: src/AdminSettings.php
+msgid "Configured via constant or environment variable."
+msgstr "定数または環境変数で設定済みです。"
+
+#: src/AdminSettings.php
+msgid "Optional. It is recommended to use wp-config.php or environment variables instead."
+msgstr "任意。wp-config.php または環境変数での設定を推奨します。"
+
+#: src/AdminSettings.php
+msgid "1536x1024 (Landscape)"
+msgstr "1536x1024（横長）"
+
+#: src/AdminSettings.php
+msgid "1024x1024 (Square)"
+msgstr "1024x1024（正方形）"
+
+#: src/AdminSettings.php
+msgid "1024x1536 (Portrait)"
+msgstr "1024x1536（縦長）"
+
+#: src/AdminSettings.php
+msgid "Landscape is recommended for blog featured images."
+msgstr "ブログのアイキャッチ画像には横長を推奨します。"
+
+#: src/AdminSettings.php
+msgid "Auto"
+msgstr "自動"
+
+#: src/AdminSettings.php
+msgid "High"
+msgstr "高"
+
+#: src/AdminSettings.php
+msgid "Medium"
+msgstr "中"
+
+#: src/AdminSettings.php
+msgid "Low"
+msgstr "低"
+
+#: src/MetaBox.php
+msgid "Generate a featured image from the post title, content, categories, and tags using OpenAI."
+msgstr "投稿のタイトル・本文・カテゴリ・タグから OpenAI で画像を生成します。"
+
+#: src/MetaBox.php
+msgid "Generate Featured Image"
+msgstr "画像を生成"
+
+#: src/MetaBox.php
+msgid "Please save the post first."
+msgstr "先に投稿を保存してください。"
+
+#: src/MetaBox.php
+msgid "Generating image... This may take up to a minute."
+msgstr "画像を生成中...最大1分ほどかかる場合があります。"
+
+#: src/MetaBox.php
+msgid "Image generated!"
+msgstr "画像を生成しました！"
+
+#: src/MetaBox.php
+msgid "Set as Thumbnail"
+msgstr "サムネイルに設定"
+
+#: src/MetaBox.php
+msgid "Insert into Post"
+msgstr "本文に挿入"
+
+#: src/MetaBox.php
+msgid "Setting..."
+msgstr "設定中..."
+
+#: src/MetaBox.php
+msgid "Done!"
+msgstr "完了！"
+
+#: src/MetaBox.php
+msgid "Inserted!"
+msgstr "挿入しました！"
+
+#: src/MetaBox.php
+msgid "Request failed. Please try again."
+msgstr "リクエストに失敗しました。もう一度お試しください。"
+
+#: src/AjaxController.php
+msgid "Invalid post ID."
+msgstr "無効な投稿IDです。"
+
+#: src/AjaxController.php
+msgid "You do not have permission to edit this post."
+msgstr "この投稿を編集する権限がありません。"
+
+#: src/AjaxController.php
+msgid "Post not found."
+msgstr "投稿が見つかりません。"
+
+#: src/AjaxController.php
+msgid "OpenAI API key is not configured. Please set it in Settings > AI Featured Image."
+msgstr "OpenAI API キーが設定されていません。設定 > AI アイキャッチ画像 で設定してください。"
+
+#: src/AjaxController.php
+msgid "Invalid parameters."
+msgstr "無効なパラメータです。"
+
+#: src/AjaxController.php
+msgid "Failed to set featured image."
+msgstr "アイキャッチ画像の設定に失敗しました。"
+
+#: src/MediaService.php
+msgid "Failed to decode base64 image data."
+msgstr "base64 画像データのデコードに失敗しました。"
+
+#: src/MediaService.php
+msgid "Failed to upload image: %s"
+msgstr "画像のアップロードに失敗しました: %s"
+
+#: src/MediaService.php
+msgid "Failed to create attachment."
+msgstr "添付ファイルの作成に失敗しました。"
+
+#: src/OpenAiImageService.php
+msgid "OpenAI API key is not configured."
+msgstr "OpenAI API キーが設定されていません。"
+
+#: src/OpenAiImageService.php
+msgid "OpenAI API request failed: %s"
+msgstr "OpenAI API リクエストに失敗しました: %s"
+
+#: src/OpenAiImageService.php
+msgid "OpenAI API error: %s"
+msgstr "OpenAI API エラー: %s"
+
+#: src/OpenAiImageService.php
+msgid "Unexpected response format from OpenAI API."
+msgstr "OpenAI API から予期しないレスポンス形式が返されました。"
+
+#: wp-ai-featured-image.php
+msgid "WP AI Featured Image Generator requires PHP %s or higher."
+msgstr "WP AI Featured Image Generator には PHP %s 以上が必要です。"
+
+#: wp-ai-featured-image.php
+msgid "WP AI Featured Image Generator requires Composer autoloader. Please run \"composer install\"."
+msgstr "WP AI Featured Image Generator には Composer のオートローダーが必要です。\"composer install\" を実行してください。"

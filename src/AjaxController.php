@@ -30,7 +30,7 @@ final class AjaxController {
 	) {}
 
 	/**
-	 * Handle the AJAX request.
+	 * Handle the generate image AJAX request.
 	 */
 	public function handle(): void {
 		check_ajax_referer( 'wp_ai_generate_featured_image' );
@@ -69,5 +69,31 @@ final class AjaxController {
 		} catch ( \RuntimeException $e ) {
 			wp_send_json_error( array( 'message' => $e->getMessage() ) );
 		}
+	}
+
+	/**
+	 * Handle the set thumbnail AJAX request.
+	 */
+	public function handle_set_thumbnail(): void {
+		check_ajax_referer( 'wp_ai_generate_featured_image' );
+
+		$post_id       = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+		$attachment_id = isset( $_POST['attachment_id'] ) ? absint( $_POST['attachment_id'] ) : 0;
+
+		if ( 0 === $post_id || 0 === $attachment_id ) {
+			wp_send_json_error( array( 'message' => __( 'Invalid parameters.', 'wp-ai-featured-image' ) ) );
+		}
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to edit this post.', 'wp-ai-featured-image' ) ), 403 );
+		}
+
+		$result = set_post_thumbnail( $post_id, $attachment_id );
+
+		if ( false === $result ) {
+			wp_send_json_error( array( 'message' => __( 'Failed to set featured image.', 'wp-ai-featured-image' ) ) );
+		}
+
+		wp_send_json_success();
 	}
 }

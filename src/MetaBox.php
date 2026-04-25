@@ -47,6 +47,7 @@ final class MetaBox {
 			</p>
 			<div id="wp-ai-generate-status"></div>
 			<div id="wp-ai-generate-preview"></div>
+			<div id="wp-ai-generate-actions"></div>
 		</div>
 		<?php
 	}
@@ -64,7 +65,7 @@ final class MetaBox {
 		wp_enqueue_script(
 			'wp-ai-featured-image',
 			WP_AI_FEATURED_IMAGE_URL . 'assets/js/generate-featured-image.js',
-			array( 'jquery' ),
+			array( 'jquery', 'wp-blocks', 'wp-data', 'wp-block-editor' ),
 			WP_AI_FEATURED_IMAGE_VERSION,
 			true,
 		);
@@ -75,6 +76,17 @@ final class MetaBox {
 			array(
 				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'wp_ai_generate_featured_image' ),
+				'i18n'    => array(
+					'saveDraftFirst'   => __( 'Please save the post first.', 'wp-ai-featured-image' ),
+					'generating'       => __( 'Generating image... This may take up to a minute.', 'wp-ai-featured-image' ),
+					'generated'        => __( 'Image generated!', 'wp-ai-featured-image' ),
+					'setAsThumbnail'   => __( 'Set as Thumbnail', 'wp-ai-featured-image' ),
+					'insertIntoPost'   => __( 'Insert into Post', 'wp-ai-featured-image' ),
+					'setting'          => __( 'Setting...', 'wp-ai-featured-image' ),
+					'done'             => __( 'Done!', 'wp-ai-featured-image' ),
+					'inserted'         => __( 'Inserted!', 'wp-ai-featured-image' ),
+					'requestFailed'    => __( 'Request failed. Please try again.', 'wp-ai-featured-image' ),
+				),
 			),
 		);
 	}

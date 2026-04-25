@@ -31,5 +31,6 @@ final class Plugin {
 		add_action( 'add_meta_boxes', array( $meta_box, 'register' ) );
 		add_action( 'admin_enqueue_scripts', array( $meta_box, 'enqueue_assets' ) );
 		add_action( 'wp_ajax_wp_ai_generate_featured_image', array( $ajax, 'handle' ) );
+		add_action( 'wp_ajax_wp_ai_set_thumbnail', array( $ajax, 'handle_set_thumbnail' ) );
 	}
 }

@@ -66,8 +66,6 @@ final class MediaService {
 		$metadata = wp_generate_attachment_metadata( $attachment_id, $upload['file'] );
 		wp_update_attachment_metadata( $attachment_id, $metadata );
 
-		set_post_thumbnail( $post_id, $attachment_id );
-
 		return $attachment_id;
 	}
 }

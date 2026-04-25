@@ -60,4 +60,11 @@ if ( ! file_exists( $wp_ai_featured_image_autoloader ) ) {
 
 require_once $wp_ai_featured_image_autoloader;
 
+add_action(
+	'init',
+	static function (): void {
+		load_plugin_textdomain( 'wp-ai-featured-image', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	}
+);
+
 ( new \WpAiFeaturedImage\Plugin() )->register();
