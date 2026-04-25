@@ -40,14 +40,20 @@ final class OpenAiImageService {
 			);
 		}
 
-		$body = array(
-			'model'           => $this->config->get_model(),
-			'prompt'          => $prompt,
-			'n'               => 1,
-			'size'            => $this->config->get_size(),
-			'quality'         => $this->config->get_quality(),
-			'response_format' => 'b64_json',
+		$model = $this->config->get_model();
+		$body  = array(
+			'model'   => $model,
+			'prompt'  => $prompt,
+			'n'       => 1,
+			'size'    => $this->config->get_size(),
+			'quality' => $this->config->get_quality(),
 		);
+
+		if ( 'gpt-image-1' === $model ) {
+			$body['output_format'] = 'b64_json';
+		} else {
+			$body['response_format'] = 'b64_json';
+		}
 
 		$response = wp_remote_post(
 			self::API_ENDPOINT,
