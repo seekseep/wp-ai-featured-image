@@ -64,7 +64,7 @@ Settings > AI Featured Image から以下の項目を設定できます。
 |------|------|-------------|
 | API Key | OpenAI APIキー（定数/環境変数未設定時のみ使用） | - |
 | Model | 画像生成モデル | gpt-image-1 |
-| Image Size | 生成画像のサイ�� | 1536x1024 (Landscape) |
+| Image Size | 生成画像のサイズ | 1536x1024 (Landscape) |
 | Quality | 画像品質 | Auto |
 
 APIキーは [OpenAI Platform](https://platform.openai.com/api-keys) から取得できます。
@@ -123,7 +123,7 @@ composer lint && composer stan && composer test
 ```
 src/
 ├── Plugin.php              # フック登録のオーケストレーター
-├── ConfigResolver.php      # 設定値の解決（定数 → 環境変数 → DB��
+├── ConfigResolver.php      # 設定値の解決（定数 → 環境変数 → DB）
 ├── PromptBuilder.php       # 投稿データからプロンプト生成
 ├── OpenAiImageService.php  # OpenAI Images API 呼び出し
 ├── MediaService.php        # メディアライブラリへの保存
