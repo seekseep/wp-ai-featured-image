@@ -1,6 +1,6 @@
 # WP AI Featured Image Generator
 
-WordPressの投稿タイトル・本文・カテゴリ・タグをもとに、OpenAI Images APIでアイキャ��チ画像を自動生成するWordPressプラグインです。
+WordPressの投稿タイトル・本文・カテゴリ・タグをもとに、OpenAI Images APIでアイキャッチ画像を自動生成するWordPressプラグインです。
 
 ## 機能
 
@@ -41,7 +41,7 @@ composer install --no-dev
 define( 'WP_AI_FEATURED_IMAGE_API_KEY', 'sk-your-api-key-here' );
 ```
 
-**���境変数で設定する方法**
+**環境変数で設定する方法**
 
 ```bash
 export OPENAI_API_KEY="sk-your-api-key-here"
